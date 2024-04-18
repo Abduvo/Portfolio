@@ -90,8 +90,137 @@ body {
     width: 70%;
 }
 
+.skills {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.skills-bar {
+    padding: 25px 30px;
+}
+
+.skills-bar .bar {
+    margin: 25px 0;
+}
+
+.skills-bar .bar .info span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.skills-bar .bar .info {
+    margin-bottom: 8px;
+    color: #07374a;
+}
+
+.skills-bar .bar .progress-line {
+    position: relative;
+    height: 10px;
+    width: 550px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.bar .progress-line span {
+    position: absolute;
+    background: #25b79f;
+    height: 100%;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@keyframes animate {
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.progress-line .html {
+    width: 90%;
+}
+
+.progress-line .css {
+    width: 80%;
+}
+
+.progress-line .bootstrap {
+    width: 80%;
+}
+
+.progress-line .javascript {
+    width: 72%;
+}
+
+.progress-line .wordpress {
+    width: 40%;
+}
+
+.bar .progress-line span::before {
+    position: absolute;
+    content: "";
+    height: 0;
+    right: 0;
+    top: -14px;
+    width: 0;
+    border: 7px solid transparent;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-top-style: #f0f0f0;
+    border-top-color: #07374a;
+}
+
+.bar .progress-line span::after {
+    position: absolute;
+    right: 0;
+    top: -28px;
+    color: #f0f0f0;
+    font-size: 12px;
+    font-weight: 700;
+    background: #07374a;
+    padding: 1px 8px;
+    border-radius: 3px;
+}
+
+
+.progress-line .html::after {
+    content: "90%";
+}
+
+.progress-line .css::after {
+    content: "80%";
+}
+
+.progress-line .bootstrap::after {
+    content: "78%";
+}
+
+.progress-line .javascript::after {
+    content: "62%";
+}
+
+.progress-line .wordpress::after {
+    content: "40%";
+}
+
+@media (max-width: 700px) {
+    .skills {
+        width: 80%;
+    }
+
+    .skills-bar .bar .progress-line {
+        width: 100%;
+    }
+}
+
 .flex {
     display: flex;
+    gap: 5%;
 }
 
 .items-centre {
@@ -135,6 +264,7 @@ body {
 
 .flex-1 {
     flex: 1;
+    margin-bottom: -10px;
 }
 
 .btn-secondary {
@@ -213,56 +343,6 @@ section.services {
     font-weight: 400;
 }
 
-.card img {
-    width: 50px;
-    background: white;
-}
-
-section.services .card-grid {
-    display: flex;
-    margin-left: 25%;
-}
-
-section.services .card-grid .card {
-    background: var(--white);
-    padding: 48px 32px;
-    position: relative;
-    text-align: center;
-   
-}
-
-section.services .card-grid .card img {
-    position: absolute;
-    top: -1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var();
-}
-
-section.services .card-grid .card h2 {
-    font-weight: 600;
-    font-size: 1.32px;
-    margin-bottom: 8px;
-}
-
-section.services .card-grid .card p {
-    font-family: 'Lato', sans-serif;
-    color: var(--seconday);
-    line-height: 1.6;
-}
-
-section.services .card-grid .card:hover {
-    background: var(--primary);
-}
-
-section.services .card-grid .card:hover h2 {
-    color: var(--white);
-}
-
-section.services .card-grid .card:hover p {
-    color: var(--white);
-}
-
 /* Contact */
 
 .contact_body {
@@ -271,51 +351,53 @@ section.services .card-grid .card:hover p {
     height: 100vh;
 }
 
-.wrapper{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 550px;
-  background: rgba(0,0,0,0.8);
-  padding: 30px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 550px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.wrapper .title h1{
-  color: #c5ecfd;
-  text-align: center;
-  margin-bottom: 25px;
+.wrapper .title h1 {
+    color: #c5ecfd;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-.contact-form{
-  display: flex;
+.contact-form {
+    display: flex;
 }
 
-.input-fields{
-  display: flex;
-  flex-direction: column;
-  margin-right: 4%;
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
 }
 
-.input-fields, .msg{
-  width: 48%;
+.input-fields,
+.msg {
+    width: 48%;
 }
 
-.input-fields .input, .msg textarea{
-  margin: 10px 0;
-  background: transparent;
-  border: 0px;
-  border-bottom: 2px solid #c5ecfd;
-  padding: 10px;
-  color: #c5ecfd;
-  width: 100%;
+.input-fields .input,
+.msg textarea {
+    margin: 10px 0;
+    background: transparent;
+    border: 0px;
+    border-bottom: 2px solid #c5ecfd;
+    padding: 10px;
+    color: #c5ecfd;
+    width: 100%;
 }
 
-.msg textarea{
-  height: 212px;
+.msg textarea {
+    height: 212px;
 }
 
 .btn {
@@ -333,15 +415,43 @@ section.services .card-grid .card:hover p {
 }
 
 
-@media screen and (max-width: 600px){
-  .contact-form{
-    flex-direction: column;
-  }
-  .msg textarea{
-    height: 80px;
-  }
-  .input-fields,
-  .msg{
+@media screen and (max-width: 600px) {
+    .contact-form {
+        flex-direction: column;
+    }
+
+    .msg textarea {
+        height: 80px;
+    }
+
+    .input-fields,
+    .msg {
+        width: 100%;
+    }
+}
+
+.rows {
+    display: flex;
+    width: 85%;
+    gap: 10%;
+    margin-left: 13%;
+}
+
+.colums img{
     width: 100%;
-  }
+    margin-top: 5%;
+    
+}
+
+.colums h2 {
+    font-size: 600%;
+    margin-top: 10%;
+}
+
+.colums p {
+    font-size: 150%;
+    width: 50%;
+    margin-top: 10%;
+    text-align: start;
+    line-height: 150%;
 }
